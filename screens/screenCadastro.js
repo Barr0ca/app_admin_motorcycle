@@ -4,10 +4,14 @@ import  styles  from "../styles/styleCadastro";
 
 export default function CadastroEmpresa() {
 
-    const [nome, setNome] = useState(null)
-    const [endereco, setEndereco] = useState(null)
-    const [what, setWhat] = useState(null)
-    const [tel, SetTel] = useState(null)
+    const [nome, setNome] = useState('')
+    const [endereco, setEndereco] = useState('')
+    const [what, setWhat] = useState('')
+    const [tel, setTel] = useState('')
+
+    const Cadastrar = () => {
+        alert()
+    }
 
     return(
         <View style={styles.boxCadastro}>
@@ -28,7 +32,8 @@ export default function CadastroEmpresa() {
                     <TextInput
                     style={styles.labelCadastro}
                     placeholder="Nome da Empresa"
-                    placeholderTextColor="rgba(0, 0, 0, 0.4)"/>
+                    placeholderTextColor="rgba(0, 0, 0, 0.4)"
+                    onChangeText={setNome}/>
                     </View>
 
                 <View 
@@ -36,7 +41,8 @@ export default function CadastroEmpresa() {
                     <TextInput
                     style={styles.labelCadastro}
                     placeholder="Endereço da Empresa"
-                    placeholderTextColor="rgba(0, 0, 0, 0.4)"/>
+                    placeholderTextColor="rgba(0, 0, 0, 0.4)"
+                    onChangeText={setEndereco}/>
                 </View>
 
                 <View 
@@ -45,7 +51,8 @@ export default function CadastroEmpresa() {
                     style={styles.labelCadastro}
                     placeholder="Whatsapp da Empresa"
                     keyboardType="numeric"
-                    placeholderTextColor="rgba(0, 0, 0, 0.4)"/>
+                    placeholderTextColor="rgba(0, 0, 0, 0.4)"
+                    onChangeText={setWhat}/>
                 </View>
 
                 <View 
@@ -54,11 +61,15 @@ export default function CadastroEmpresa() {
                     style={styles.labelCadastro}
                     placeholder="Telefone da Empresa"
                     keyboardType="numeric"
-                    placeholderTextColor="rgba(0, 0, 0, 0.4)"/>
+                    placeholderTextColor="rgba(0, 0, 0, 0.4)"
+                    onChangeText={setTel}/>
                 </View>
 
                 <View>
-                    <TouchableOpacity style={styles.boxButton}>
+                    <TouchableOpacity 
+                    style={styles.boxButton}
+                    onPress={() => Cadastrar()}
+                    >
                         <Text style={styles.textCadastrar}>CADASTRAR</Text>
                     </TouchableOpacity>
                 </View>
