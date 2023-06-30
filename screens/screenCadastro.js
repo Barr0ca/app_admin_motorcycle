@@ -19,7 +19,7 @@ export default function CadastroEmpresa() {
 
             <View style={styles.boxTitle}> 
                 <Text 
-                style={styles.titleCadastro}>CADASTRO</Text>
+                style={styles.titleCadastro}>CADASTRO EMPRESA</Text>
             </View>
 
             <View style={styles.boxForm}>
