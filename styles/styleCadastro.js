@@ -8,12 +8,12 @@ boxLabel: {
     width: '72%',
     backgroundColor: '#DADADA',
     borderRadius: 5,
-    margin: 20,
+    margin: 17,
+    padding: 5
 },
 labelCadastro: {
     color: '#8500FF',
-    paddingLeft: 10,
-    paddingRight: 10,
+    marginLeft: 10,
     margin: 3,
 },
 titleCadastro: {
@@ -22,11 +22,12 @@ titleCadastro: {
 },
 boxIcon: {
     alignItems: 'center',
-    marginTop: '30%',
+    marginVertical: 50,
     marginBottom: '10%',
 },
 boxTitle: {
     alignItems: 'center',
+    marginVertical: -3
 },
 boxForm: {
     alignItems: 'center',
@@ -35,7 +36,7 @@ boxButton: {
     alignItems: 'center',
     backgroundColor: '#8500FF',
     borderRadius: 3,
-    padding: 7,
+    padding: 10,
     marginTop: 19,
 },
 textCadastrar: {
