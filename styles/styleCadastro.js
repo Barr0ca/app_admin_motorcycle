@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 boxCadastro: {
     flex: 1,
+    marginVertical: 50
 },
 boxLabel: {
     width: '72%',

@@ -4,13 +4,30 @@ import  styles  from "../styles/styleCadastro";
 
 export default function CadastroEmpresa() {
 
-    const [nome, setNome] = useState('')
-    const [endereco, setEndereco] = useState('')
-    const [what, setWhat] = useState('')
-    const [tel, setTel] = useState('')
+    const [nome, setNome] = useState(null);
+    const [endereco, setEndereco] = useState(null);
+    const [what, setWhat] = useState(null);
+    const [tel, setTel] = useState(null);
+    const [cadastro, setCadastro] = useState(null);
+    const [mensagem, setMensagem] = useState(null);
 
-    const Cadastrar = () => {
-        alert()
+    async function sendForm()
+    {
+        let response=await fetch('http://10.0.0.108:3000/cadastro', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nomeEmpresa: nome,
+                enderecoEmpresa: endereco,
+                whatsappEmpresa: what,
+                telefoneEmpresa: tel
+            }),
+        });
+        let ress = await response.json();
+        setMensagem(ress);
     }
 
     return(
@@ -27,13 +44,18 @@ export default function CadastroEmpresa() {
             </View>
 
             <View style={styles.boxForm}>
+
+                {mensagem && (
+                    <Text>{mensagem}</Text>
+                )}
+
                 <View 
                 style={styles.boxLabel}>
                     <TextInput
                     style={styles.labelCadastro}
                     placeholder="Nome da Empresa"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
-                    onChangeText={setNome}/>
+                    onChangeText={text=>setNome(text)}/>
                     </View>
 
                 <View 
@@ -42,7 +64,7 @@ export default function CadastroEmpresa() {
                     style={styles.labelCadastro}
                     placeholder="Endereço da Empresa"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
-                    onChangeText={setEndereco}/>
+                    onChangeText={text=>setEndereco(text)}/>
                 </View>
 
                 <View 
@@ -52,7 +74,7 @@ export default function CadastroEmpresa() {
                     placeholder="Whatsapp da Empresa"
                     keyboardType="numeric"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
-                    onChangeText={setWhat}/>
+                    onChangeText={text=>setWhat(text)}/>
                 </View>
 
                 <View 
@@ -62,13 +84,13 @@ export default function CadastroEmpresa() {
                     placeholder="Telefone da Empresa"
                     keyboardType="numeric"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
-                    onChangeText={setTel}/>
+                    onChangeText={text=>setTel(text)}/>
                 </View>
 
                 <View>
                     <TouchableOpacity 
                     style={styles.boxButton}
-                    onPress={() => Cadastrar()}
+                    onPress={() => sendForm()}
                     >
                         <Text style={styles.textCadastrar}>CADASTRAR</Text>
                     </TouchableOpacity>
