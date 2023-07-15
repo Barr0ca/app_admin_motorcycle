@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { View, Image, Text, TextInput, TouchableOpacity } from "react-native";
+import { KeyboardAvoidingView, Image, Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
 import  styles  from "../styles/styleCadastro";
+import { TextInputMask } from 'react-native-masked-text';
 
 export default function CadastroEmpresa() {
 
@@ -31,63 +32,62 @@ export default function CadastroEmpresa() {
     }
 
     return(
-        <View style={styles.boxCadastro}>
+        <KeyboardAvoidingView style={styles.boxCadastro} keyboardVerticalOffset={10}>
 
-            <View style={styles.boxIcon}>
-                <Image
-                source={require("./icons/iconMotorcycle.png")}/>
-            </View>
+            <TouchableOpacity style={styles.boxAvatar}>
+                <Image source={require('./icons/camera.png')} style={styles.avatar}/>
+            </TouchableOpacity>
 
             <View style={styles.boxTitle}> 
                 <Text 
                 style={styles.titleCadastro}>CADASTRO EMPRESA</Text>
             </View>
 
-            <View style={styles.boxForm}>
+            <ScrollView style={styles.boxForm} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
 
-                {mensagem && (
-                    <Text>{mensagem}</Text>
-                )}
+                <View style={styles.center}>
+                    {mensagem && (
+                        <Text>{mensagem}</Text>
+                    )}
 
-                <View 
-                style={styles.boxLabel}>
                     <TextInput
                     style={styles.labelCadastro}
                     placeholder="Nome da Empresa"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
                     onChangeText={text=>setNome(text)}/>
-                    </View>
 
-                <View 
-                style={styles.boxLabel}>
                     <TextInput
                     style={styles.labelCadastro}
                     placeholder="Endereço da Empresa"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
                     onChangeText={text=>setEndereco(text)}/>
-                </View>
 
-                <View 
-                style={styles.boxLabel}>
-                    <TextInput
+                    <TextInputMask
                     style={styles.labelCadastro}
+                    type={'cel-phone'}
+                    options={{
+                        maskType: 'BRL',
+                        withDDD: true,
+                        dddMask: '(99)'
+                    }}
                     placeholder="Whatsapp da Empresa"
                     keyboardType="numeric"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
                     onChangeText={text=>setWhat(text)}/>
-                </View>
 
-                <View 
-                style={styles.boxLabel}>
-                    <TextInput
+                    <TextInputMask
                     style={styles.labelCadastro}
+                    type={'cel-phone'}
+                    options={{
+                        maskType: 'BRL',
+                        withDDD: true,
+                        dddMask: '(99)'
+                    }}
                     placeholder="Telefone da Empresa"
                     keyboardType="numeric"
                     placeholderTextColor="rgba(0, 0, 0, 0.4)"
                     onChangeText={text=>setTel(text)}/>
-                </View>
 
-                <View>
                     <TouchableOpacity 
                     style={styles.boxButton}
                     onPress={() => sendForm()}
@@ -96,8 +96,8 @@ export default function CadastroEmpresa() {
                     </TouchableOpacity>
                 </View>
 
-            </View>
+            </ScrollView>
 
-        </View>
+        </KeyboardAvoidingView>
     );
 }

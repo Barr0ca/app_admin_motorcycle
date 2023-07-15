@@ -3,48 +3,77 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 boxCadastro: {
     flex: 1,
-    marginVertical: 50
+    justifyContent: 'center',
+    alignItems: 'center'
 },
-boxLabel: {
-    width: '72%',
-    backgroundColor: '#DADADA',
-    borderRadius: 5,
-    margin: 17,
-    padding: 5
+
+boxForm: {
+    flex: 1,
+    width: '100%',
+    zIndex: 1,
+    //backgroundColor: 'red',
+    paddingTop: 20,
 },
+
+center: {
+    justifyContent: 'center',
+    alignItems: 'center'
+},
+
 labelCadastro: {
+    backgroundColor: '#DADADA',
+    width: '72%',
+    marginBottom: 15,
     color: '#8500FF',
-    marginLeft: 10,
-    margin: 3,
+    fontSize: 17,
+    borderRadius: 5,
+    padding: 10,
+    marginVertical: '3%',
+    overflow: 'hidden',
 },
+
 titleCadastro: {
     color: '#8500FF',
     fontSize: 25,
+    paddingTop: 10
 },
-boxIcon: {
+
+boxAvatar: {
+    height: 150,
+    width: 150,
     alignItems: 'center',
-    marginVertical: 50,
-    marginBottom: '10%',
+    justifyContent: 'center',
+    backgroundColor: '#DADADA',
+    borderRadius: 100,
+    marginTop: 40,
+    //backgroundColor: 'green',
 },
+
+avatar: {
+    height: 80,
+    width: 80,
+},
+
 boxTitle: {
-    alignItems: 'center',
-    marginVertical: -3
+    overflow: 'hidden',
 },
-boxForm: {
-    alignItems: 'center',
-},
+
 boxButton: {
-    alignItems: 'center',
     backgroundColor: '#8500FF',
-    borderRadius: 3,
-    padding: 10,
-    marginTop: 19,
+    width: '40%',
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    marginVertical: '5%',
 },
+
 textCadastrar: {
-    fontSize: 18,
-    color: '#FFFFFF',
+    color: '#fff',
     fontWeight: 'bold',
+    fontSize: 17
 },
+
 });
 
 export default styles

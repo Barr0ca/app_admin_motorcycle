@@ -16,6 +16,7 @@
     "mysql2": "^3.4.3",
     "react": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-masked-text": "^1.13.0",
     "sequelize": "^6.32.1"
   },
   "devDependencies": {
