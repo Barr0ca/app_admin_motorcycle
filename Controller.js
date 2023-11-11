@@ -14,7 +14,8 @@ app.post('/cadastro',async (req,res)=>{
         nomeEmpresa: req.body.nomeEmpresa,
         enderecoEmpresa: req.body.enderecoEmpresa,
         whatsappEmpresa: req.body.whatsappEmpresa,
-        telefoneEmpresa: req.body.telefoneEmpresa
+        telefoneEmpresa: req.body.telefoneEmpresa,
+        imagensEmpresa: req.body.imagensEmpresa
     });
     if (reqs){
         res.send(JSON.stringify('Empresa cadastrada com sucesso!'))

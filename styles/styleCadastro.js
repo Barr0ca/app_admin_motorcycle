@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
 boxCadastro: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 50
 },
 
 boxForm: {
@@ -12,7 +13,7 @@ boxForm: {
     width: '100%',
     zIndex: 1,
     //backgroundColor: 'red',
-    paddingTop: 20,
+    marginTop: 20,
 },
 
 center: {
@@ -35,7 +36,7 @@ labelCadastro: {
 titleCadastro: {
     color: '#8500FF',
     fontSize: 25,
-    paddingTop: 10
+    marginTop: 10
 },
 
 boxAvatar: {
@@ -50,8 +51,9 @@ boxAvatar: {
 },
 
 avatar: {
-    height: 80,
-    width: 80,
+    height: 150,
+    width: 150,
+    borderRadius: 100
 },
 
 boxTitle: {
@@ -74,6 +76,14 @@ textCadastrar: {
     fontSize: 17
 },
 
+alert: {
+    color: '#8500FF'
+},
+
+alertImagem: {
+    color: '#8500FF',
+    marginTop: 10
+},
 });
 
 export default styles

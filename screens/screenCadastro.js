@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { KeyboardAvoidingView, Image, Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
 import  styles  from "../styles/styleCadastro";
 import { TextInputMask } from 'react-native-masked-text';
+import * as ImagePicker from 'expo-image-picker';
+import config from '../config/config.json';
 
 export default function CadastroEmpresa() {
 
@@ -9,34 +11,53 @@ export default function CadastroEmpresa() {
     const [endereco, setEndereco] = useState(null);
     const [what, setWhat] = useState(null);
     const [tel, setTel] = useState(null);
+    const [imagem, setImagem] = useState(null);
     const [cadastro, setCadastro] = useState(null);
     const [mensagem, setMensagem] = useState(null);
 
     async function sendForm()
     {
-        let response=await fetch('http://10.0.0.108:3000/cadastro', {
+        let response=await fetch(config.urlRootNode+'cadastro', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json; charset=UTF-8',
             },
             body: JSON.stringify({
                 nomeEmpresa: nome,
                 enderecoEmpresa: endereco,
                 whatsappEmpresa: what,
-                telefoneEmpresa: tel
+                telefoneEmpresa: tel,
+                imagensEmpresa: imagem
             }),
         });
-        let ress = await response.json();
-        setMensagem(ress);
+        let res = await response.json();
+        setMensagem(res);
     }
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            base64: true,
+            aspect: [4, 4],
+            quality: 1,
+        });
+
+        if (!result.canceled) {
+            setImagem(result.assets[0].uri)
+        } else {
+            alert('Imagem não adicionada! ')
+        }
+    };
 
     return(
         <KeyboardAvoidingView style={styles.boxCadastro} keyboardVerticalOffset={10}>
 
-            <TouchableOpacity style={styles.boxAvatar}>
-                <Image source={require('./icons/camera.png')} style={styles.avatar}/>
+            <TouchableOpacity style={styles.boxAvatar} onPress={() => pickImage()}>
+                <Image source={{ uri: imagem }} style={styles.avatar}/>
             </TouchableOpacity>
+            <Text style={styles.alertImagem}>Inserir imagem</Text>
 
             <View style={styles.boxTitle}> 
                 <Text 
@@ -47,7 +68,7 @@ export default function CadastroEmpresa() {
 
                 <View style={styles.center}>
                     {mensagem && (
-                        <Text>{mensagem}</Text>
+                        <Text style={styles.alert}>{mensagem}</Text>
                     )}
 
                     <TextInput

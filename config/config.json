@@ -3,7 +3,7 @@
     "username": "root",
     "password": null,
     "database": "app_motorcycle",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
@@ -19,5 +19,6 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  }
+  },
+  "urlRootNode": "http://10.0.0.108:3000/"
 }

@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     nomeEmpresa: DataTypes.STRING,
     enderecoEmpresa: DataTypes.STRING,
     whatsappEmpresa: DataTypes.STRING,
-    telefoneEmpresa: DataTypes.STRING
+    telefoneEmpresa: DataTypes.STRING,
+    imagensEmpresa: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Empresas',

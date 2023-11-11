@@ -21,6 +21,9 @@ module.exports = {
       telefoneEmpresa: {
         type: Sequelize.STRING
       },
+      imagensEmpresa:{
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
