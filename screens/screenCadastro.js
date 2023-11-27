@@ -17,7 +17,7 @@ export default function CadastroEmpresa() {
 
     async function sendForm()
     {
-        let response=await fetch(config.urlRootNode+'cadastro', {
+        let response=await fetch(config.urlRootNode+'Empresa', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

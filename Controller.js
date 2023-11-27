@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 let empresas=models.Empresas;
 
-app.post('/cadastro',async (req,res)=>{
+app.post('/Empresa',async (req,res)=>{
     let reqs = await empresas.create({
         nomeEmpresa: req.body.nomeEmpresa,
         enderecoEmpresa: req.body.enderecoEmpresa,
@@ -22,7 +22,7 @@ app.post('/cadastro',async (req,res)=>{
     }
 });
 
-let port=process.env.PORT || 3000;
+let port=process.env.PORT || 5188;
 app.listen(port,(req,res)=>{
     console.log('Servidor Rodando!');
 });
